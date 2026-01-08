@@ -4,18 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background-color: transparent; overflow: hidden; }
-        #live2d { width: 100vw; height: 100vh; }
+        body { margin: 0; background: transparent; overflow: hidden; }
+        #live2d-widget { transform-origin: top left; }
     </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
     <script>
-        // আপনার মডেল লোড করার কনফিগারেশন
         initWidget({
-            model: "miku/runtime/miku.model3.json", // আপনার পাথ অনুযায়ী নাম
-            display: { width: 300, height: 500, position: "right" },
-            mobile: { show: true }
+            model: "miku/runtime/miku.model3.json", // আপনার মিকু ফাইলের নাম ও পাথ
+            display: {
+                position: "right",
+                width: 200,      // মোবাইলের জন্য চওড়া কমানো হয়েছে
+                height: 400,     // মোবাইলের জন্য উচ্চতা
+                hOffset: 0,
+                vOffset: -20
+            },
+            mobile: {
+                show: true,      // এটি অবশ্যই TRUE হতে হবে মোবাইলে দেখার জন্য
+                scale: 1.0       // মোবাইল স্ক্রিনে কতটুকু বড় দেখাবে
+            },
+            react: {
+                opacity: 1.0
+            }
         });
     </script>
 </body>
