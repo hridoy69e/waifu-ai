@@ -2,19 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+        body { margin: 0; background: transparent; }
     </style>
 </head>
 <body>
     <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    
     <script>
-        initWidget({
-            model: "miku/runtime/miku.model3.json", 
-            display: { position: "right", width: 150, height: 300 },
-            mobile: { show: true, scale: 1 }
-        });
+        // ডিফল্ট মডেল বন্ধ করে আপনার মিকু লোড করার ফাংশন
+        function initMiku() {
+            if (typeof initWidget === 'function') {
+                initWidget({
+                    // আপনার গিটহাবের মিকু ফাইলের সঠিক পাথ
+                    model: "miku/miku.model3.json", 
+                    display: { 
+                        position: "right", 
+                        width: 180, 
+                        height: 350 
+                    },
+                    mobile: { 
+                        show: true, 
+                        scale: 1 
+                    }
+                });
+            } else {
+                setTimeout(initMiku, 1000);
+            }
+        }
+        initMiku();
     </script>
 </body>
 </html>
